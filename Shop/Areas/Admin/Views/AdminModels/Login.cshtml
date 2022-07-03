@@ -1,0 +1,46 @@
+﻿
+@{
+    ViewData["Title"] = "Home";
+}
+
+<body style="background-color:lightblue">
+   @* <hr>
+    <h2>Login Page</h2>
+    <hr>
+    <br/></br>*@
+ <img class="profile-img-card" src="~/assets/img/clown.png" />
+ 
+@using(Html.BeginForm())
+{
+    @Html.Label("uname","UserName:")
+    @Html.TextBox("uname")
+    <br/>
+    @Html.Label("pwd  ","PassWord :")
+    @Html.TextBox("pwd","",new{type="Password"});
+    <br/>
+    @Html.RadioButton("mode","Admin")
+    @Html.Label("Admin")
+    @Html.RadioButton("mode","User")
+    @Html.Label("User")
+    <br/>
+    @Html.CheckBox("cb");
+    @Html.Label("cb","Remember me");
+
+    @*@Html.Label("login","Select User Type:")
+    @Html.DropDownList("LoginType",new List<SelectListItem>
+    {
+    new SelectListItem{Text="",Value="0"},
+    new SelectListItem{Text="UserLogin",Value="1"},
+    new SelectListItem{Text="AdminLogin",Value="2"}
+    })*@
+
+    <br/><br/>
+    <button>Login</button>
+    @*<button>Reset</button>*@
+
+    
+    
+}
+@ViewBag.message
+</body>
+

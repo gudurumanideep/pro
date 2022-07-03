@@ -1,0 +1,82 @@
+﻿
+<div ng-app="myApp" onload="Load()" ng-controller="customersCtrl">
+   
+       <div class="container d-xl-flex align-items-xl-center" style="margin-top: 20px;">
+        <h4 class="text-secondary flex-fill">New User ?</h4>
+    </div>
+    <hr>
+     
+
+    <div class="container">
+        <div class="col-md-10 col-md-offset-1">
+
+            <div class="card">
+                <div class="card-header bg-primary">
+                    <h6>Welcome</h6>
+                </div>
+                <div class="card-body">
+                    <form method="post" name="SignupForm" action="/Home/Signup">
+                           
+                            <div class="form-group">
+                                <div class="col-md-12">
+                                    
+                                    @Html.Label("uname","UserName     :")
+                                    </br>
+                                     @Html.TextBox("uname")
+                                    <p> </p>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-12">
+                                    @Html.Label("mobile","MobileNumber :")
+                                    </br>
+                                     @Html.TextBox("mobile")
+                                    <p> </p>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-12">
+                                    @Html.Label("email  ","Email        :")
+                                    </br>
+                                    @Html.TextBox("email","",new{type="Email"})
+                                   
+                                </div>
+                            </div>
+                            <div class="form-group pl-3 pr-3">
+                               <div class="row">
+                                 <div class="col">
+                                    @Html.Label("password","PassWord   :")
+                                    </br>
+                                    @Html.TextBox("password","",new{type="Password"})
+                                    
+                                </div>
+                                 
+
+                            </div>
+
+                            </div>
+                            
+                            
+                           @if (!string.IsNullOrEmpty(ViewBag.Error))
+                                    {
+                                        <div class="alert alert-danger" role="alert" style="margin-top: 16px;"><i class="fa fa-exclamation-triangle"></i><span><strong>@ViewBag.Error</strong></span></div>
+                                    }
+                            <div class="row">
+                                <div class="col">
+                                   
+                                    <button ng-disabled="SignUpForm.$invalid" class="btn btn-warning btn-block" type="submit"> <i class="glyphicon glyphicon-ok"></i> Proceed </button>
+                                </div>
+                            </div>
+                            
+                        </form>
+                </div>
+            </div>
+
+
+            
+        </div>
+    </div>
+
+
+
+</div>

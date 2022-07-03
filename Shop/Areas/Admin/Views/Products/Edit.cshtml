@@ -1,0 +1,58 @@
+﻿@model Shop.Models.Products;
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<br />
+<h2 class="text-info">Edit Product</h2>
+<form asp-action="Edit" method="post">
+    <div class="p-4 rounded border">
+        <input type="hidden" asp-for="Id" />
+        <div asp-validation-summary="ModelOnly" clss="text-danger">
+            
+        </div>
+        <div class="form-group row">
+            <div class="col-2">
+                <label asp-for=Name></label>
+            </div>
+            <div class="col-5">
+                <input asp-for=Name class="form-control" />
+            </div>
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div><br />
+        <div class="form-group row">
+            <div class="col-2">
+                <label asp-for=Price></label>
+            </div>
+            <div class="col-5">
+                <input asp-for=Price class="form-control" />
+            </div>
+            <span asp-validation-for="Price" class="text-danger"></span>
+        </div><br />
+        <div class="form-group row">
+            <div class="col-2">
+                <label asp-for=Image></label>
+            </div>
+            <div class="col-5">
+                <input asp-for=Image class="form-control" />
+            </div>
+            <span asp-validation-for="Image" class="text-danger"></span><br />
+        
+            <div class="col-6">
+            <img src="@Html.Raw(Model.Image)" style="width:128px;height:128px;" />
+            </div>
+
+        </div><br />
+        <div class="form-group">
+            <input type="submit" class="btn btn-primary" value="Update" />
+            <a asp-action="Index" class="btn btn-success">Back to List</a>
+
+        </div>
+    </div>
+</form>
+
+@section Scripts{
+    @{ await Html.RenderPartialAsync(partialViewName:"_ValidationScriptsPartial");}
+}
